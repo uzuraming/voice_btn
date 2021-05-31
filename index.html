@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<!-- 言語を指定　今回は日本語 -->
+<html lang="ja">
+
+<!-- headでかこまれた要素にサイトの情報を書く。ここは今は適当 -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- タイトル -->
+    <title>音楽再生つーる</title>
+</head>
+
+<!-- bodyに囲まれたところに見た目を書く -->
+<body>
+
+    <!-- divは意味ないが、わかりやすく分けるために使う -->
+    <div>
+     
+        <!-- buttonで囲むとボタンができる -->
+        <!-- onclick="関数名()"でscript内の関数が発動 -->
+        <button id="btn1" onclick="buttonClick1()">1</button>
+        <button id="btn2" onclick="buttonClick2()">2</button>
+        <button id="btn3" onclick="buttonClick3()">3</button>
+
+    </div>
+    
+</body>
+
+</html>
+
+
+<!-- ここからjavascript -->
+<script>
+    
+    // 基本的にはjavascriptの関数は
+
+    // function 関数名(引数){
+    //     処理
+    // }
+
+    // のように定義します。
+    // 引数とは、関数内でいじる数やデータのことです。
+    // 関数とはつまり引数をいじって何かしらの処理をするもの、ということです
+
+
+
+    // ボタン１が押されたときの関数
+    function buttonClick1(){
+
+        // 音声データのリストです
+        // リストとは配列とも言いますが、いろいろなものをリストにすることができ、
+        // 配列名[最初から数えて何番目か-1]
+        // で中身を呼び出せます
+        var dir_list = ['./voice/voice1/water.mp3', './voice/voice1/money.mp3','./voice/voice1/door.mp3']
+
+
+        // ちなみに何かを変数に定義するときは
+        // 基本は
+        // var 変数名 = なんか
+
+        // で定義します。
+
+        
+        // dir_listの長さを定義
+        // 配列名.lengthで長さを取得できます。
+        var length = dir_list.length;
+
+        // Math.random()で0から1の少数を計算し、それをdir_listと掛け合わせ、四捨五入することでランダムな数を生成してる
+        var index = Math.floor(Math.random()*length);
+
+        // 0~「dis_listの長さ」番目の要素を取り出す
+        var dir_name = dir_list[index];
+ 
+
+        // Audioオブジェクトの作成
+        var music = new Audio(dir_name);
+        music.play();  // 再生
+      
+        
+    }
+
+    // 他のボタンでも試してみてください
+    function buttonClick2(){
+        alert('Click2');
+    }
+    function buttonClick3(){
+        alert('Click3');
+    }
+
+
+
+
+
+
+</script>
